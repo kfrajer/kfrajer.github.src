@@ -6,9 +6,9 @@ header:
     paddingY: 0
     align: center
     title:
-      - HUGO
+      - PlayBook
     subtitle:
-      - The world’s fastest framework for building websites
+      - Dev Docs & resources
     titleColor: 
     titleShadow: true
     titleFontSize: 44
