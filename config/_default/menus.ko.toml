@@ -1,28 +1,28 @@
 [[main]]
   identifier = "about"
-  name = "어바웃"
+  name = "Acerca"
   url = "about"
   weight = 1
 
 [[main]]
   identifier = "archive"
-  name = "아카이브"
+  name = "Archivado"
   url = "archive"
   weight = 2
 
 [[main]]
   identifier = "gallery"
-  name = "갤러리"
+  name = "Galleria"
   url = "gallery"
   weight = 3
     
 [[main]]
   parent = "gallery"
-  name = "fiverr"
+  name = "Picante"
   url = "gallery/mine"
 
 [[main]]
   identifier = "posts"
-  name = "포스트"
+  name = "Entradas"
   url = "posts"
   weight = 4
