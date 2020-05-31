@@ -99,7 +99,8 @@ o) hugo version  ## v0.71.1
       -) DOCS:
       -) https://themes.gohugo.io/hugo-theme-techdoc/
       -) https://themes.gohugo.io/ace-documentation/
-      -) https://themes.gohugo.io/hugo-theme-zdoc/
+      -) https://themes.gohugo.io/hugo-theme-zdoc/   ***
+      -) https://themes.gohugo.io/hugo-theme-zzo/    ***
       -) https://themes.gohugo.io/beautifulhugo/
       -) https://themes.gohugo.io/hugo-theme-prav/
       -) PROFILE
