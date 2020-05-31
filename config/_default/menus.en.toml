@@ -49,3 +49,15 @@
   name = "Pub"
   url = "publication"
   weight = 7
+
+[[main]]
+  identifier = "kbase"
+  name = "KBase"
+  url = "development"
+  weight = 8
+  
+[[main]]
+  identifier = "templates"
+  name = "Templates"
+  url = "templates"
+  weight = 9

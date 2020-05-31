@@ -7,7 +7,7 @@
 
 [ko]
   title = "Hugo Zzo Theme"
-  languageName = "한국어"
+  languageName = "Español"
   weight = 2
   languagedir = "ltr"
-  contentdir = "content/ko"
+  contentdir = "content/es"
