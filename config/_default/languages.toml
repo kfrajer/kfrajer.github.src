@@ -5,7 +5,7 @@
   languagedir = "ltr"
   contentdir = "content/en"
 
-[ko]
+[es]
   title = "Hugo Zzo Theme"
   languageName = "한국어"
   weight = 2
