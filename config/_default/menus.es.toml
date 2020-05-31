@@ -1,28 +1,28 @@
 [[main]]
-  identifier = "about"
+  identifier = "acerca"
   name = "Acerca"
   url = "about"
   weight = 1
 
 [[main]]
-  identifier = "archive"
+  identifier = "archivado"
   name = "Archivado"
-  url = "archive"
+  url = "archivado"
   weight = 2
 
 [[main]]
-  identifier = "gallery"
-  name = "Galleria"
-  url = "gallery"
+  identifier = "galeria"
+  name = "Galeria"
+  url = "galeria"
   weight = 3
     
 [[main]]
-  parent = "gallery"
+  parent = "galeria"
   name = "Picante"
-  url = "gallery/mine"
+  url = "galeria/mio"
 
 [[main]]
-  identifier = "posts"
+  identifier = "entradas"
   name = "Entradas"
-  url = "posts"
+  url = "entradas"
   weight = 4
