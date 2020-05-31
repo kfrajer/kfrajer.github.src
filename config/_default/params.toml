@@ -1,4 +1,4 @@
-logoText = "Zzo"
+logoText = "KFrajer"
 logoType = "short" # long, short
 description = "The Zzo theme for Hugo example site."
 custom_css = []
@@ -40,14 +40,14 @@ talksGroupByDate = "2006"
 pubPaginate = 20
 
 # whoami
-myname = "zzossig"
-email = "zzossig@gmail.com"
-whoami = "Web Developer"
+myname = "krisfrajer"
+email = "krisfrajerg@gmail.com"
+whoami = "Software Developer"
 bioImageUrl = ""
 useGravatar = false
-location = "Seoul, Korea"
-organization = "Hugo"
-link = "https://zzossig.io/ko"
+location = "Montreal, Canada"
+organization = "ADS"
+link = "https://krisfrajer.dev"
 
 # sidebar
 enableBio = true
@@ -141,18 +141,18 @@ commento = false
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [socialOptions]
-  email = "mailto:your@email.com"
+  email = "mailto:krisfrajer@email.com"
   phone = ""
-  facebook = "http://example.org/"
-  twitter = "http://example.org/"
-  github = "https://github.com/zzossig/hugo-theme-zzo"
-  stack-overflow = ""
+  facebook = ""
+  twitter = "https://twitter.com/crist_mos"
+  github = "https://github.com/kfrajer"
+  stack-overflow = "https://stackoverflow.com/users/7229333/k-f"
   instagram = ""
   google-plus = ""
   youtube = ""
   medium = ""
   tumblr = ""
-  linkedin = ""
+  linkedin = "https://www.linkedin.com/in/cristmos/"
   pinterest = ""
   stack-exchange = ""
   telegram = ""
@@ -160,7 +160,7 @@ commento = false
   weibo = ""
   douban = ""
   csdn = ""
-  gitlab = ""
+  gitlab = "https://gitlab.com/kfrajer"
   mastodon = ""
   jianshu = ""
   zhihu = ""
@@ -181,10 +181,11 @@ commento = false
 
 # possible share name: ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]
 [[share]]
-  name = "facebook"
-  username = ""
+  name = "linkedin"
+  username = "cristmos"
 [[share]]
   name = "twitter"
+  username = "crist_mos"
 
 [[footerLinks]]
   name = ""
