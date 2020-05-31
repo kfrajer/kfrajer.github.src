@@ -1,3 +1,21 @@
+---
+author: "Cristian Mosquera"
+title: "Building a Hugo Page"
+date: 2020-05-30T17:29:59-04:00
+lastmod: 2020-05-30T17:29:59-04:00
+description: "Steps to create this site"
+draft: false
+hideToc: false
+enableToc: true
+enableTocContent: false
+tags: 
+- Hugo
+- static-generator
+- web
+- Golang
+---
+
+
 ------------------------------------------------------------------------
 Building a Site: Generation
 *) (Why to setup a static site?)[#]
@@ -119,7 +137,7 @@ o) Modified content/post/welcome.md
 o) git add . 
 o) git commit -m "Added my first few posts: index in content, welcome in content/post. Added homepage tag and remove draft parameter on md header"
 o) hugo serve -w   <=== WORKS!
-o) hugo -t hugo-theme-techdoc -d public_html   <===  builds html/css/js to deploy
+o) hugo -d published   <===  builds html/css/js to deploy
 TEST: http://localhost:1313
 TEST: http://localhost:1313/post/welcome/
 o) git push -u origin master
