@@ -108,12 +108,12 @@ o) hugo version  ## v0.71.1
 x) Note that config.toml file has this line `theme = "zzo"` 
 #) hugo new post/welcome.md   <===https://www.youtube.com/watch?v=w7Ft2ymGmfc
 +) echo " #Wecome to kfrajer.github.src" >> README.md
-+) Login into GitHub and create repo "kfrajer.github.src"
 +) git add .
 +) git commit -m "Hugo base template init"
 +) git remote add origin https://github.com/kfrajer/kfrajer.github.src.git
 +) git push -u origin master
-o) hugo new content/index.md
+o) hugo new Development/git.md
+hugo new Development/docker.md
 o) Modified content/index.md    <=== FROM https://github.com/digitalcraftsman/hugo-alabaster-theme/tree/master/exampleSite/content
 o) Modified content/post/welcome.md
 o) git add . 

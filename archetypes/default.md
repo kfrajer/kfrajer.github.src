@@ -1,6 +1,15 @@
 ---
+author: "Cristian Mosquera"
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+lastmod: {{ .Date }}
+description: ""
+draft: false
+hideToc: false
+enableToc: true
+enableTocContent: false
+tags: 
+- one
+- two
 ---
 
