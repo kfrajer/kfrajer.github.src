@@ -1,0 +1,28 @@
+[[main]]
+  identifier = "acerca"
+  name = "Acerca"
+  url = "about"
+  weight = 1
+
+[[main]]
+  identifier = "archivado"
+  name = "Archivado"
+  url = "archivado"
+  weight = 2
+
+[[main]]
+  identifier = "galeria"
+  name = "Galeria"
+  url = "galeria"
+  weight = 3
+    
+[[main]]
+  parent = "galeria"
+  name = "Picante"
+  url = "galeria/mio"
+
+[[main]]
+  identifier = "entradas"
+  name = "Entradas"
+  url = "entradas"
+  weight = 4
