@@ -138,6 +138,7 @@ o) git add .
 o) git commit -m "Added my first few posts: index in content, welcome in content/post. Added homepage tag and remove draft parameter on md header"
 o) hugo serve -w   <=== WORKS!
 o) hugo -d published   <===  builds html/css/js to deploy
+o) Create .gitignore and add the folder above: `published/**`
 TEST: http://localhost:1313
 TEST: http://localhost:1313/post/welcome/
 o) git push -u origin master
