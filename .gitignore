@@ -1,0 +1,6 @@
+published/**
+.repo_version*
+*~
+*.*~
+*.pyc
+
