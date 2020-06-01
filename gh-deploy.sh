@@ -98,8 +98,8 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-#find -type f -name "*.sh" -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.xml" -print0 | xargs -0 dos2unix
-for i in `find -type f -name "*.sh"  -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt"`; do sed -i 's/\r//g' $i; echo "Removing Windows end of line for : $i"; done
+#find -type f -name "*.sh" -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.xml"  -o -name "*.json" -print0 | xargs -0 dos2unix
+for i in `find -type f -name "*.sh"  -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.json"`; do sed -i 's/\r//g' $i; echo "Removing Windows end of line for : $i"; done
 
 # Go To Public folder
 cd $FOLDER2PUBLISH
