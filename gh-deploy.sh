@@ -102,7 +102,7 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-for i in `find -type f -name "*.sh" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js"`; do 
+for i in `find -type f -name "*.sh" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt"`; do 
     sed -i 's/\r//g' $i; echo "Removing Windows end of line for : $i";
 done
 
