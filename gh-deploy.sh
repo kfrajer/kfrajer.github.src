@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 ## INSTRUCTIONS
-## To run: `./gh-deploy.sh {folder} "{msg}"` {tag}
+## To run: `./gh-deploy.sh {folder} "{msg}"` 
+## You might need to execute this first: `sed -i -e 's/\r$//' gh-deploy.sh`
 ## Parameters:
-##   folder: Folder to output built pages. Default is public
-##   msg: Message to add to commit. Use quotes if msg has spaces
-##   tag: Tag version following semantic versioning e.g. v0.1.0 aka v{mayor}.{feature}.{patch}
+##   folder: Folder to output built pages. Default is published
+##   msg: Message to add to commit. Use quotes if msg has any spaces
 ##
 
 # If a command fails then the deploy stops
@@ -16,11 +16,11 @@ set -e
 #  REQUIRES: Version file to exist
 #  INPUT: File name storing current version
 #  RETURN: Version found in file
-function get_tag_version(){
+function get_tag_version {
     TAG_FILE="$1"
     if [ ! -f "$TAG_FILE" ]; then
         echo "ERROR: File $TAG_FILE does not exist. Aborting..."
-        return 1;
+        exit 1;
     fi
 
     # First non-commented line
@@ -35,7 +35,7 @@ function get_tag_version(){
 #  INPUT: File name storing current version
 #  INPUT: branchName: current branch name to process
 #  RETURN: 0 if success, non-zero otherwise
-function update_tag_version(){
+function update_tag_version {
     TAG_FILE="$1"
     curr_branch_name="$2"
 
@@ -62,7 +62,7 @@ function update_tag_version(){
         PATCH=$((PATCH+1))
     else
         echo "ERROR: Branch name \"$curr_branch_name\" not recognize. It need to start with \"mayor/\", \"feature/\" or \"bugfix/\". Aborting..."
-        return 1;
+        exit 1;
     fi
 
     new_version="v$MAYOR.$MINOR.$PATCH"
@@ -81,8 +81,17 @@ function update_tag_version(){
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-FOLDER2PUBLISH=public
+FOLDER2PUBLISH=published
 MSG="Rebuilding site $(date)"
+branchName=$(git rev-parse --abbrev-ref HEAD)
+VERSION_FILE_TRACKER="../.repo_version"
+
+if [ "$branchName" = master ]; then
+    echo "ERROR: Your are in master. Deploy manually. Aborting..."
+    exit 1;
+fi
+
+#[ "$branchName" = master ] && echo "Exiting..." && exit 1;
 
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
@@ -101,9 +110,8 @@ git add .
 
 git commit -m "$MSG"
 
-branchName=$(git rev-parse --abbrev-ref HEAD)
-update_tag_version ".repo_version" $branchName
-TAGVER=get_tag_version ".repo_version"
+update_tag_version "$VERSION_FILE_TRACKER" $branchName
+TAGVER=get_tag_version "$VERSION_FILE_TRACKER"
 if [ -n "$TAGVER" ]; then
     git tag -a "$TAGVER" -m "$MSG"
 fi
@@ -113,3 +121,5 @@ git push origin master
 
 # Revert to initial directory
 cd ..
+
+printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
