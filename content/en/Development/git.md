@@ -29,16 +29,33 @@ tags:
 * `git stash pop`
 * `git commit -amend` ## Type `a` for append. When changes are done, press `ESC` then press `:` and type `wq` meaning write and exit
 * `git cherry-pick {commitID01} {commitID02} ... {commitID0N}`
-* `git rebase -i {commit-id-to-start-from}`
+* `git rebase -i {commit-id-to-start-from}`: squash, fix commits, order commits, drop commits
 * `git fetch master`: Bring changes but do not merge them
-* [Rebasing commits from master in current branch]
-* [Branch reset - unstaging changes]
-* [Branch reset - dropping changes]
+* `git reset HEAD`: Reset unstaging changes (Reset "git add {...}")
+* `git reset HEAD^`: Branch reset - reset last commit, move head to previous commit
+* `git config --global alias.uncommit 'reset HEAD^'`: Use this as `git uncommit`
+* `git reset HEAD {file}`: Unstage the file but maintain the modifications
+* `git checkout -- {file}`: Revert a file back to the state it was in before any changes
+* Rebasing commits from master into current branch
+```
+# master(public): c1 - c37
+# feaure(mine): c1 - c2 - c3 - [...] - c36
+git checkout {master-br-name}
+git rebase {master-br-name} {feature-br-name}
+# Final: c1 - c37 - c2 - c3 - [...] - c36
+# Branch changed here would be the feature branch (aka current branch at the end is "feature" branch)  
+# If conflict arises, rebase will stop and indicate where the conflict is (what file)
+# - Resolve conflict using emacs:
+# - Remove conflict indicators
+# - Choose/amend changes to desired behavior
+# - Save file and exit
+# - `git rebase --continue`: It will continue rebase operation
+```
 
 * `git branch -D {branchName}`:  Removes branch even if it has not been pushed
 * `git branch -m {oldName} {newName}`: Rename branch
 * `git mv {oldFileName} {newFileName}`
 
-* `git submodule add {URL-Repo}`
+* `git submodule add {URL-Repo}.git {folder}`
 * `git submodule update --remote --merge`
 * `git submodule update --init --recursive`
