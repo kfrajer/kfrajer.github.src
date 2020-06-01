@@ -104,7 +104,8 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-???
+## Clean up CRLF end of line chars
+./crlf-cleanup.sh
 
 git push --set-upstream origin $branchName
 
