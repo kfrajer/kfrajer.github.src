@@ -104,8 +104,8 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-#find -type f -name "*.sh" -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.xml"  -o -name "*.json" -print0 | xargs -0 dos2unix
-for i in `find -type f -name "*.sh"  -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.json"`; do sed -i 's/\r//g' $i; echo "Removing Windows end of line for : $i"; done
+## Clean up CRLF end of line chars
+./crlf-cleanup.sh
 
 git push --set-upstream origin $branchName
 
@@ -135,6 +135,13 @@ git push origin master --follow-tags
 # Revert to initial directory
 cd ..
 
+printf "\033[0;32m ....................................... \033[0m\n"
 printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
+printf "\033[0;32m ....................................... \033[0m\n"
+printf "\033[0;33mDon't forget: \033[0;32mYou need to now create a pull request upstream. Branch:\033[0;33m %s \033[0m\n" "$branchName"
+printf "\033[0;32mYour current branch was set to \033[0;33m \"master\" \033[0m\n"
+
+git checkout master
+
 
 set +x
