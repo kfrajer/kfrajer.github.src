@@ -3,7 +3,7 @@ author: "Cristian Mosquera"
 title: "Dockerfile sample"
 date: 2020-05-30T18:08:14-04:00
 lastmod: 2020-05-30T18:08:14-04:00
-description: "Demo dockerfile using GOlang as base image
+description: "Demo dockerfile using GOlang as base image"
 draft: false
 hideToc: false
 enableToc: true
