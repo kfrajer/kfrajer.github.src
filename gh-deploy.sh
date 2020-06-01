@@ -80,6 +80,12 @@ function update_tag_version {
     return 0;
 }
 
+# ###########################################################################
+#
+#                                    XXXXX
+#
+# ###########################################################################
+
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 FOLDER2PUBLISH=published
@@ -106,6 +112,8 @@ git push --set-upstream origin $branchName
 # Go To Public folder
 cd $FOLDER2PUBLISH
 
+## Copy site readme file to folder
+cp -f ../README.site.md README.md
 # Instruct Github this static content is not using jekyll
 [ ! -f ".nojekyll"  ] && touch .nojekyll
 
@@ -122,7 +130,7 @@ if [ -n "$TAGVER" ]; then
 fi
 
 # Push source and build repos.
-git push origin master
+git push origin master --follow-tags
 
 # Revert to initial directory
 cd ..
