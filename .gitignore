@@ -1,5 +1,6 @@
-published/*
+published/
 published/**
+Trash/
 .repo_version*
 *~
 *.*~
