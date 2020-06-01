@@ -17,6 +17,7 @@ tags:
 
 * `git status`
 * `git checkout`
+* `git rev-parse --abbrev-ref HEAD`: Current branch name
 * `git branch -a`: List all branches
 * `git checkout -b`
 * `git log --pretty=oneline`
@@ -27,7 +28,8 @@ tags:
 * `git push `
 * `git stash`
 * `git stash pop`
-* `git commit -amend` ## Type `a` for append. When changes are done, press `ESC` then press `:` and type `wq` meaning write and exit
+* `git commit --amend -m {new-commit-message}`
+* `git commit -amend` ## Opens vi to edit commit msg. Type `a` for append. When done, press `ESC` then press `:` and type `wq` meaning write and exit
 * `git cherry-pick {commitID01} {commitID02} ... {commitID0N}`
 * `git rebase -i {commit-id-to-start-from}`: squash, fix commits, order commits, drop commits
 * `git fetch master`: Bring changes but do not merge them
@@ -51,6 +53,10 @@ git rebase {master-br-name} {feature-br-name}
 # - Save file and exit
 # - `git rebase --continue`: It will continue rebase operation
 ```
+
+* `git remote -v`
+* `git remote rm {nameRemote}`
+* `git remote add {nameRemote} {ssh:git_url}`
 
 * `git rev-parse --abbrev-ref HEAD`: Current branch
 * `git branch -D {branchName}`:  Removes branch even if it has not been pushed

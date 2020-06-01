@@ -38,3 +38,4 @@ clean:
 	#mv -f $(DEPLOY_DIR) $(TRASH)/ || true
 	FILES="$(shell find -type f -name '*.*~' -o -name '*~')"; mv -f $$FILES $(TRASH) || true
 	@ echo "Cleaning up... DONE"
+	
