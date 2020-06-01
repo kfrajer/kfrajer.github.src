@@ -98,6 +98,9 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
+# Pushed current src code for site to .src repo
+git push --set-upstream origin "$branchName"
+
 # Go To Public folder
 cd $FOLDER2PUBLISH
 
