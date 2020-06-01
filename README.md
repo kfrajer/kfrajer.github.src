@@ -5,10 +5,13 @@
 ## Instructions
 
 ### Current submodules
-* .src repo (https://github.com/kfrajer/kfrajer.github.src) has two submodules
-* One for the Hugo theme: ZZO
-* A second one for the repo hosting the site: https://github.com/kfrajer/kfrajer.github.io
+* .src repo (https://github.com/kfrajer/kfrajer.github.src) has one submodule setup:
+* Hugo theme: ZZO
+* [UNDER revision] A second one for the repo hosting the site: https://github.com/kfrajer/kfrajer.github.io
+  - If implemented, at the end when returning to root dir, need to update submodule for every deploy
 * Reference: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+* To update any changes/commit in the submodule to be reflected in the main/master repo, run:
+  `git submodule update --init --recursive`
 
 ### Semantic versioning
 * Semantic vesrioning track in .repo_version file (See below)
