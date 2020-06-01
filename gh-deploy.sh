@@ -10,11 +10,7 @@
 
 # If a command fails then the deploy stops
 set -e
-<<<<<<< Updated upstream
-set -x
-=======
 set -x 
->>>>>>> Stashed changes
 
 #Reads the version stored in the version file.
 #All lines that starts with '#' are ignored. reads first non-commented line
@@ -102,7 +98,7 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-for i in `find -type f -name "*.sh" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt"`; do 
+for i in `find -type f -name "*.sh"  -o -name "*.md" -o -name "*.html" -o -name "*.htm" -o -name "*.xml" -o -name "*.css" -o -name "*.js" -o -name "*.txt"`; do 
     sed -i 's/\r//g' $i; echo "Removing Windows end of line for : $i";
 done
 
