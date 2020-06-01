@@ -62,6 +62,7 @@ git rebase {master-br-name} {feature-br-name}
 * `git branch -D {branchName}`:  Removes branch even if it has not been pushed
 * `git branch -m {oldName} {newName}`: Rename branch
 * `git mv {oldFileName} {newFileName}`
+* `GIT_TRACE_PERFORMANCE=1 git status`: To get a report in git ops and their performance
 
 * `git submodule add {URL-Repo}.git {folder}`
 * `git submodule update --remote --merge`
