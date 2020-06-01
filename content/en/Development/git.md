@@ -25,7 +25,7 @@ tags:
 * `git diff {fileName}`
 * `git add {fileName01} {fileName02} ... {fileName0N}`
 * `git commit -m "Commit msg here"`
-* `git push `
+* `git push ` or ` git push --set-upstream {upstream-ref} {which-branch}`
 * `git stash`
 * `git stash pop`
 * `git commit --amend -m {new-commit-message}`
