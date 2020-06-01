@@ -10,6 +10,7 @@
 
 # If a command fails then the deploy stops
 set -e
+set -x
 
 #Reads the version stored in the version file.
 #All lines that starts with '#' are ignored. reads first non-commented line
@@ -25,7 +26,7 @@ function get_tag_version {
 
     # First non-commented line
     first_line="$(grep -m 1 -v -e "#" $TAG_FILE)"
-    return "$first_line"
+    return 0
 }
 
 #Updates version file based on branch name
@@ -39,9 +40,10 @@ function update_tag_version {
     TAG_FILE="$1"
     curr_branch_name="$2"
 
-    prev_line=get_tag_version "$TAG_FILE"    
+    get_tag_version "$TAG_FILE"
+    prev_version=$first_line
     # Remove v in vX.X.X
-    last_version00=$(echo $prev_line | sed 's/v//' )
+    last_version00=$(echo $prev_version | sed 's/v//' )
     # Remove leading/trailing white spaces
     last_version=$(echo $last_version00 | sed 's/ *$//g')
     #Tokenize
@@ -73,10 +75,9 @@ function update_tag_version {
     echo "$new_version" >> $TAG_FILE
 
     #Report
-    echo "File \"$TAG_FILE\" updated from $prev_line to $new_version"
+    echo "REPORT: File \"$TAG_FILE\" updated from $prev_version to $new_version"
 
     return 0;
-
 }
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
@@ -90,8 +91,6 @@ if [ "$branchName" = master ]; then
     echo "ERROR: Your are in master. Deploy manually. Aborting..."
     exit 1;
 fi
-
-#[ "$branchName" = master ] && echo "Exiting..." && exit 1;
 
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
@@ -111,7 +110,8 @@ git add .
 git commit -m "$MSG"
 
 update_tag_version "$VERSION_FILE_TRACKER" $branchName
-TAGVER=get_tag_version "$VERSION_FILE_TRACKER"
+get_tag_version "$VERSION_FILE_TRACKER"
+TAGVER=$first_line
 if [ -n "$TAGVER" ]; then
     git tag -a "$TAGVER" -m "$MSG"
 fi
@@ -123,3 +123,5 @@ git push origin master
 cd ..
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
+
+set +x
