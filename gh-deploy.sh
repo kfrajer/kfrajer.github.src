@@ -93,6 +93,9 @@ hugo -d $FOLDER2PUBLISH
 # Go To Public folder
 cd $FOLDER2PUBLISH
 
+# instruct Github this static content is not using jekyll
+touch .nojekyll
+
 # Add changes to git.
 git add .
 
