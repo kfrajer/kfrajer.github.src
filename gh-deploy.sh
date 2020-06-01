@@ -10,7 +10,7 @@
 
 # If a command fails then the deploy stops
 set -e
-set -x
+#set -x 
 
 #Reads the version stored in the version file.
 #All lines that starts with '#' are ignored. reads first non-commented line
@@ -124,4 +124,4 @@ cd ..
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
 
-set +x
+#set +x
