@@ -135,6 +135,13 @@ git push origin master --follow-tags
 # Revert to initial directory
 cd ..
 
+printf "\033[0;32m ....................................... \033[0m\n"
 printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
+printf "\033[0;32m ....................................... \033[0m\n"
+printf "\033[0;33mDon't forget: \033[0;32mYou need to now create a pull request upstream. Branch:\033[0;33m %s \033[0m\n" "$branchName"
+printf "\033[0;32mYour current branch was set to \033[0;33m \"master\" \033[0m\n"
+
+git checkout master
+
 
 set +x
