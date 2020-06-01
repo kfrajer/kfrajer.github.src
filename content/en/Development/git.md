@@ -52,6 +52,7 @@ git rebase {master-br-name} {feature-br-name}
 # - `git rebase --continue`: It will continue rebase operation
 ```
 
+* `git rev-parse --abbrev-ref HEAD`: Current branch
 * `git branch -D {branchName}`:  Removes branch even if it has not been pushed
 * `git branch -m {oldName} {newName}`: Rename branch
 * `git mv {oldFileName} {newFileName}`
