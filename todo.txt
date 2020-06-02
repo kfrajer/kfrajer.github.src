@@ -1,0 +1,13 @@
+# To do
+
+* Reduce size of hugo base iamge from ~300 to ~100MB
+* Evaluate to submodule published folder
+* d-c to build site
+* d-c.cicd to override volume/env definitions
+* DOCS: Add d-c network setup
+* DOCS: Add manual P3 sketch building
+* DOCS: Add manual P3 library building
+* DOCS: List of active sites + Domains
+* Cloud Endpoints
+* Cloud Deploy Manager
+* GCE spin up and shutdown: https://cloud.google.com/blog/products/gcp/brick-by-brick-learn-gcp-by-setting-up-a-minecraft-server
