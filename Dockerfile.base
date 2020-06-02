@@ -1,0 +1,26 @@
+FROM debian:buster-slim
+
+ENV VERSION 0.71.1
+ENV HOMEDIR /deployed/public/hugo
+
+RUN apt-get update && apt-get install -qq -y \
+    --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    curl \
+    git \
+    ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/certs/*
+
+ADD cacert-2020-01-01.crt /usr/local/share/ca-certificates/cacert-2020-01-01.crt
+RUN chmod 644 /usr/local/share/ca-certificates/cacert-2020-01-01.crt && update-ca-certificates
+
+RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_linux-64bit.tar.gz | tar -xz \
+    && mv hugo /usr/local/bin/hugo \
+    && addgroup --gid 1000 hugodev \
+    && adduser --ingroup hugodev -uid 1000 --home $HOMEDIR --disabled-password hugodev
+
+WORKDIR $HOMEDIR
+
+EXPOSE 1313
