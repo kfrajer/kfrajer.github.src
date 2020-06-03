@@ -4,6 +4,9 @@
 * Evaluate to submodule published folder
 * d-c to build site
 * d-c.cicd to override volume/env definitions
+* update_version_tracking: Either soft-link to internal post or update actual post (.md) content
+* update_version_tracking: Evaluate if vers calculation should be done before building site (git push in src. vs. site.io)
+* update_version_tracking: Setup .history new lines as markup table
 * Update Makefile to build base image
 * Minify static content
 * Evaluate server setup, whatchtower, ansible: https://jtreminio.com/blog/setting-up-a-static-site-with-hugo-and-push-to-deploy/

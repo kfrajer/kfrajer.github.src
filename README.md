@@ -29,10 +29,7 @@
   `git submodule update --init --recursive`
 
 ### To build the base image
-* Run `docker build -t kfrajer/hugo:v0.71.1 -f Dockerfile.base .`
-* ` docker image tag kfrajer/hugo:v0.71.1 kfrajer/hugo:latest`
-* `docker login`
-* `docker image push kfrajer/hugo:v0.71.1`
+* Refer to .cicd.support/baseimage/README.md
 
 ### Semantic versioning
 * Semantic vesrioning track in .repo_version file (See below)
