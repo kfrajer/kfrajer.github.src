@@ -10,7 +10,7 @@
 * Update Makefile to build base image
 * Minify static content
 * Evaluate server setup, whatchtower, ansible: https://jtreminio.com/blog/setting-up-a-static-site-with-hugo-and-push-to-deploy/
-* DOCS: Add d-c network setup "tmpl"
+* DOCS: Dockerfile for codevalidation, test and tagging
 * DOCS: Add manual P3 sketch building
 * DOCS: Add manual P3 library building
 * DOCS: List of active sites + Domains
