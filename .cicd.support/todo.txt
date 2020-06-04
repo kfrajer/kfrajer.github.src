@@ -1,20 +1,26 @@
 # To do
 
 * Reduce size of hugo base iamge from ~300 to ~100MB
-* Evaluate to submodule published folder
-* d-c to build site
+
+* d-c to build site (to run site is working)
 * d-c.cicd to override volume/env definitions
+* Update Makefile to build base image
+* Minify static content
+
+
+* Evaluate to submodule published folder
 * update_version_tracking: Either soft-link to internal post or update actual post (.md) content
 * update_version_tracking: Evaluate if vers calculation should be done before building site (git push in src. vs. site.io)
 * update_version_tracking: Setup .history new lines as markup table
-* Update Makefile to build base image
-* Minify static content
-* Evaluate server setup, whatchtower, ansible: https://jtreminio.com/blog/setting-up-a-static-site-with-hugo-and-push-to-deploy/
+* Fix version tracking so to update version when changing master but not generating site (No need to tag branch)
+
 * DOCS: Dockerfile for codevalidation, test and tagging
 * DOCS: Add manual P3 sketch building
 * DOCS: Add manual P3 library building
 * DOCS: List of active sites + Domains
 * DOCS: Compile CA instructions into a post
+
 * Cloud Endpoints
 * Cloud Deploy Manager
+* Evaluate server setup, whatchtower, ansible: https://jtreminio.com/blog/setting-up-a-static-site-with-hugo-and-push-to-deploy/
 * GCE spin up and shutdown: https://cloud.google.com/blog/products/gcp/brick-by-brick-learn-gcp-by-setting-up-a-minecraft-server
