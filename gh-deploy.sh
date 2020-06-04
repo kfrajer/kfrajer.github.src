@@ -48,7 +48,8 @@ if [ -n "$TAG_VER" ]; then
 fi
 
 ## Clean up CRLF end of line chars
-./crlf-cleanup.sh
+#./crlf-cleanup.sh
+source ./cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" ".xml" ".json" ".txt" 
 
 git push --set-upstream origin $branchName
 
