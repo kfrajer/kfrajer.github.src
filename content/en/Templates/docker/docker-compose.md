@@ -3,14 +3,17 @@ author: "Cristian Mosquera"
 title: "Docker Compose"
 date: 2020-05-30T18:08:28-04:00
 lastmod: 2020-05-30T18:08:28-04:00
-description: ""
+description: "Docker compose sample: network, service definition, .env"
 draft: false
 hideToc: false
 enableToc: true
 enableTocContent: false
 tags: 
-- one
-- two
+- docker-compose
+- docker
+- network
+- demo
+- services
 ---
 
 # Dockerfiles with common network layer: Master-slave setup
