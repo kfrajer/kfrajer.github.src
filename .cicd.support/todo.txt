@@ -24,3 +24,90 @@
 * Cloud Deploy Manager
 * Evaluate server setup, whatchtower, ansible: https://jtreminio.com/blog/setting-up-a-static-site-with-hugo-and-push-to-deploy/
 * GCE spin up and shutdown: https://cloud.google.com/blog/products/gcp/brick-by-brick-learn-gcp-by-setting-up-a-minecraft-server
+
+## ===========================================================================
+##
+##                                    XXXXXXXXXX
+##                                     PENDING
+##                                    XXXXXXXXXX
+##
+## ===========================================================================
+
+* FFT/C#
+* sigma difference @ single freq
+
+
+how would I configure Traefik to have configure two docker containers to have there own unique domain  like example.com to docker container one coolwesite.net docker container two
+I was looking at the docs and other tutorials do I have to configure the Frontend with the appropriate domain and point it to the back end with the correct port?
+
+* How to set up traefik and docker: https://github.com/karnthis/dev-op-boilerplate/blob/master/docker-compose.yaml
+* Digital Ocean traefik: https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-centos-7
+* caddy
+
+GH actions:
+* https://www.youtube.com/watch?v=eB0nUzAI7M8
+* https://github.com/marketplace/actions/github-action-for-firebase
+
+## ===========================================================================
+
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+      - node
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./files:/var/www/html/
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    working_dir: /var/www/html/wp
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    links: 
+      - db
+
+  node:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+        - "8888"
+    command: "npm start"
+
+  phpmyadmin:
+    depends_on: 
+      - db
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - "8181:80"
+    environment: 
+      # PMA_PORT: somewordpress
+      PMA_USER: wordpress
+      PM_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: somewordpress
+    links: 
+    - db:dv
+
+volumes:
+    db_data: {}
