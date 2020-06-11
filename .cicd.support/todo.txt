@@ -111,3 +111,15 @@ services:
 
 volumes:
     db_data: {}
+
+## ===========================================================================
+
+* cmd2718 script + Makefile
+* Makefile for container CI + Manning
+* Laravel+hugo docs + part3+4 
+* Chrome extensions
+  Bookmarklets - Browser Power  subsimple.com/bookmarklets/index.php
+
+  javascript:(function(){var xa = document.getElementsByClassName("fl-transparent-facade")[0];var xalistItems = xa.children;var picurl=xalistItems[0].src;xa.href=picurl;})();
+
+  javascript:(function(){document.body.innerHTML=document.body.innerHTML.replace(/cloud/g,"butt").replace(/Cloud/g,"Butt");})();
