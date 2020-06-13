@@ -114,6 +114,11 @@ volumes:
 
 ## ===========================================================================
 
+* Script to generate self-signed cerificate
+* Write blog about jwt token + cheatsheet
+* TLS flow, CA certificates (including installation), encryption algos
+* Symmetric+asymmetric encryption
+* GatewayConfiguration script: Change file/folder names and internal global replacement of file contents (MAINa+MAINb)
 * cmd2718 script + Makefile
 * Makefile for container CI + Manning
 * Laravel+hugo docs + part3+4 
