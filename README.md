@@ -2,18 +2,24 @@
 
 ## Overview
 
-* Contains the source code for [https://kfrajer.github.io/](https://kfrajer.github.io/)
+* This repo contains the source code for site [https://kfrajer.github.io/](https://kfrajer.github.io/)
 
-## Instructions
+### To build HUGO site's base image
+* Refer to .cicd.support/baseimage/README.md
+
+## Create a new section and Markdown document:
+*  Run at the root of the site: `hugo new {section}/{md-file-name}` example `hugo new projects/_index.md`
+
+## Instructions for publishing
 * Create a branch, makes changes and commit often
 * A branch name needs to start with `feature/` or `bugfix/`
-* Test changes locally by running local server: `hugo server` and then visit [http://localhost:1313](http://localhost:1313)
+* Test changes locally by running local server: `hugo server` or `make` and then visit [http://localhost:1313](http://localhost:1313)
 * When ready to deploy, execute `./cmd.sh`. This performs the following actions:
-  - Push your current changes in your current branch to the **src** repository
-  - Build your site to **published/** folder
-  - Removes pesky CRLF introduce by Windows OS. TODO: Resolve this issue
+  - Push your current changes in your current branch to the **[src](https://github.com/kfrajer/kfrajer.github.src)** repository
+  - Build your site to **published/** folder. Same step as executing `make build`
+  - Removes CRLF en-of-line characters introduce by Windows OS. TODO: Under evaluation
   - Tag current branch based on automatic semantic versioning
-  - Push changes to the `github.io` repo. Changes goes always against `master` branch
+  - Push changes to `master` branch in **[main site](https://github.com/kfrajer/kfrajer.github.io)** 
   - Sets your current branch in the **src** folder to `master`
   - Now you can visit [https://kfrajer.github.io](https://kfrajer.github.io) to explore the changes
 * Manual step: Manage the pull request upstream. Merge the feature branch(FBr) into master
@@ -27,9 +33,6 @@
 * Reference: https://gohugo.io/hosting-and-deployment/hosting-on-github/
 * To update any changes/commit in the submodule to be reflected in the main/master repo, run:
   `git submodule update --init --recursive`
-
-### To build the base image
-* Refer to .cicd.support/baseimage/README.md
 
 ### Semantic versioning
 * Semantic vesrioning track in .repo_version file (See below)
@@ -46,9 +49,7 @@
 * [Submodule handy guide](https://github.blog/2016-02-01-working-with-submodules/)
 
 ## Report bugs
-
 Report any bugs in Github issue tracker [here](https://github.com/kfrajer/kfrajer.github.src/issues)
 
 ## License
-
 * MIT

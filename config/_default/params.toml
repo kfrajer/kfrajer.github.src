@@ -41,7 +41,7 @@ pubPaginate = 20
 
 # whoami
 myname = "krisfrajer"
-email = "krisfrajerg@gmail.com"
+email = "krisfrajer@gmail.com"
 whoami = "Software Developer"
 bioImageUrl = ""
 useGravatar = false

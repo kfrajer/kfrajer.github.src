@@ -12,7 +12,7 @@ LOGFILE=log-backups.log
 
 info:
 	@ echo "Stream line instructions to generate and deploy resources";
-	@ echo "Options: info, run, serve, deploy, upload, clean, tar";
+	@ echo "Options: info, run, serve, build, deploy, clean, tar";
 
 serve: 
 	@ echo "Serving..."
@@ -21,10 +21,10 @@ serve:
 run: serve
 	@ echo "Running..."
 
-deploy: 
+build: 
 	hugo -d $(DEPLOY_DIR)/
 
-upload:
+deploy:
 	@ echo "To be done..."
 
 tar:

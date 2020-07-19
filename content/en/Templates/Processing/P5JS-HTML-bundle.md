@@ -18,9 +18,16 @@ tags:
 # P5js Template: Loading local p5.js script
 
 ```html
+<!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Demo P5.js</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
     <script src="sketch.js"></script>
   </head>
   <body>
@@ -31,6 +38,7 @@ tags:
 # P5js Template: Embedded p5.js script
 
 ```html
+<!DOCTYPE html>
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>

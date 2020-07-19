@@ -24,7 +24,7 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 FOLDER2PUBLISH=published
 MSG="Rebuilding site $(date)"
-VERSION_FILE_TRACKER=".repo_version"
+CURRENT_VERSION_TAG_TRACKER=".repo_version"
 branchName=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$branchName" = master ]; then
@@ -35,13 +35,26 @@ fi
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
 
+## Temporal solution. To delete publish folder (rename and move to trash), then 
+## pull from repo, only copy .git folder and remove other folders before re-building site
+## Alternate solution: To use submodule
+if [ -d "$FOLDER2PUBLISH" ]; then
+    mkdir -p Trash
+    CURRENT_SECONDS_EPOCH=$((`date +%s`))
+    mv "$FOLDER2PUBLISH" Trash/deleted."$FOLDER2PUBLISH"."$CURRENT_SECONDS_EPOCH"
+fi
+git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"/tmpFolder
+mv "$FOLDER2PUBLISH"/tmpFolder/.git "$FOLDER2PUBLISH"
+rm -rf "$FOLDER2PUBLISH"/tmpFolder
+
+
+
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-calculate_new_tag_version "$VERSION_FILE_TRACKER" $branchName
-get_tag_version "$VERSION_FILE_TRACKER"
-TAG_VER=$read_version
-update_version_tracking "$TAG_VER" "$MSG"
+calculate_new_tag_version "$CURRENT_VERSION_TAG_TRACKER" $branchName
+TAG_VER=$new_version
+update_version_tracking "$CURRENT_VERSION_TAG_TRACKER" "$TAG_VER" "$MSG"
 
 if [ -n "$TAG_VER" ]; then
     git tag -a "$TAG_VER" -m "$MSG"
@@ -49,7 +62,7 @@ fi
 
 ## Clean up CRLF end of line chars
 #./crlf-cleanup.sh
-source ./cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" ".xml" ".json" ".txt" 
+source ./.cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" ".xml" ".json" ".txt" 
 
 git push --set-upstream origin $branchName
 
@@ -78,8 +91,8 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
 printf "\033[0;32m ....................................... \033[0m\n\n"
 
 printf "\033[0;33mDon't forget: \033[0;32mYou need to now create a pull request upstream. Branch:\033[0;33m %s \033[0m\n" "$branchName"
-printf "Visit `https://github.com/kfrajer/kfrajer.github.io` and merge recent uploaded branch into master\n"
-printf "`git checout master && git pull`: After merge to update local repo\n"
-printf "\n`git submodule update --init --recursive`: Aligns base repo with latest submodule changes\n\n"
+printf "Visit 'https://github.com/kfrajer/kfrajer.github.io' and merge recent uploaded branch into master\n"
+printf "'git checkout master && git pull': After merge to update local repo\n"
+printf "\n'git submodule update --init --recursive': Aligns base repo with latest submodule changes\n\n"
 
 printf "\033[0;32mYour current branch is now set to \033[0;33m \"master\" \033[0m\n"
