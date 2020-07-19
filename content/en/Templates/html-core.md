@@ -16,7 +16,7 @@ tags:
 ---
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,11 +33,9 @@ tags:
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
   <!-- <script src="sketch.js"></script> -->
-
 </head>
 
 <body>
-
 
   <script src="js/scripts.js"></script>
 </body>

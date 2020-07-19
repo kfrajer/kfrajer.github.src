@@ -6,9 +6,9 @@ header:
     paddingY: 0
     align: center
     title:
-      - PlayBook
+      - Coding Master Reference
     subtitle:
-      - Dev Docs & resources
+      - Playbooks & Developer Resources
     titleColor: 
     titleShadow: true
     titleFontSize: 44

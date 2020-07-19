@@ -7,11 +7,11 @@
 ## Instructions
 * Create a branch, makes changes and commit often
 * A branch name needs to start with `feature/` or `bugfix/`
-* Test changes locally by running local server: `hugo server` and then visit [http://localhost:1313](http://localhost:1313)
+* Test changes locally by running local server: `hugo server` or `make` and then visit [http://localhost:1313](http://localhost:1313)
 * When ready to deploy, execute `./cmd.sh`. This performs the following actions:
-  - Push your current changes in your current branch to the **src** repository
-  - Build your site to **published/** folder
-  - Removes pesky CRLF introduce by Windows OS. TODO: Resolve this issue
+  - Push your current changes in your current branch to the **[src](https://github.com/kfrajer/kfrajer.github.src)** repository
+  - Build your site to **published/** folder. Same step as executing `make build`
+  - Removes CRLF en-of-line characters introduce by Windows OS. TODO: Under evaluation
   - Tag current branch based on automatic semantic versioning
   - Push changes to the `github.io` repo. Changes goes always against `master` branch
   - Sets your current branch in the **src** folder to `master`
@@ -39,6 +39,9 @@
 ### ".repo_version" file
 * Do not tempered with the .repo_version file
 * If .repo_version is deleted by accident, create one with the latest tag version as found in the published repo. Version is first non-commented line. Example: "v0.1.0" with no quotes. Any line that starts with '#' are treated as comments
+
+## Create a new section/document:
+*  Run at the root of the site: `hugo new {section}/{md-file-name}` example `hugo new projects/_index.md`
 
 ## Handy References
 * [Deploy personal pages in Github.IO](https://pages.github.com/)

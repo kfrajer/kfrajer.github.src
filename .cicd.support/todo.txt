@@ -33,8 +33,9 @@
 ##
 ## ===========================================================================
 
-* FFT/C#
+* FFT/C# ---> PDE java version 
 * sigma difference @ single freq
+* Python decorator demonstration
 
 
 how would I configure Traefik to have configure two docker containers to have there own unique domain  like example.com to docker container one coolwesite.net docker container two

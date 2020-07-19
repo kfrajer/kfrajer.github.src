@@ -18,6 +18,7 @@ tags:
 # P5js Template: Loading local p5.js script
 
 ```html
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,6 +38,7 @@ tags:
 # P5js Template: Embedded p5.js script
 
 ```html
+<!DOCTYPE html>
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
