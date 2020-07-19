@@ -35,6 +35,15 @@ fi
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
 
+## Temporal solution. To delete publish folder (rename and move to trash), then pull from repo before building site
+## Alternate solution: To use submodule
+if [ -d "$FOLDER2PUBLISH" ]; then
+    mkdir -p Trash
+    mv "$FOLDER2PUBLISH" "Trash/deleted.$FOLDER2PUBLISH.$SECONDS"
+fi
+git clone https://github.com/kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"
+
+
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 

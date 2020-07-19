@@ -23,7 +23,7 @@
 ## Links of interests
 * [Hugo source code for main site](https://github.com/kfrajer/kfrajer.github.src)
 * [Main site's location from generated code](https://github.com/kfrajer/kfrajer.github.io)
-* [Direct pulic access point to main site](https://kfrajer.github.io)
+* [Direct public access point to main site](https://kfrajer.github.io)
 
 ## Report bugs
 

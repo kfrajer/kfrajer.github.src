@@ -7,7 +7,7 @@
 ### To build HUGO site's base image
 * Refer to .cicd.support/baseimage/README.md
 
-## Create a new section/document:
+## Create a new section and Markdown document:
 *  Run at the root of the site: `hugo new {section}/{md-file-name}` example `hugo new projects/_index.md`
 
 ## Instructions for publishing
