@@ -39,7 +39,8 @@ fi
 ## Alternate solution: To use submodule
 if [ -d "$FOLDER2PUBLISH" ]; then
     mkdir -p Trash
-    mv "$FOLDER2PUBLISH" "Trash/deleted.$FOLDER2PUBLISH.$SECONDS"
+    CURRENT_SECONDS_EPOCH=$((`date +%s`))
+    mv "$FOLDER2PUBLISH" Trash/deleted."$FOLDER2PUBLISH"."$CURRENT_SECONDS_EPOCH"
 fi
 git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"
 
