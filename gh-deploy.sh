@@ -22,7 +22,8 @@ source ./.cicd.support/version.tracker.helper.sh
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-FOLDER2PUBLISH=../published
+ROOT2PUBLISH=..
+FOLDER2PUBLISH=published
 CURRENT_VERSION_TAG_TRACKER=".repo_version"
 CURR_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 MSG=""
@@ -59,16 +60,16 @@ git tag -a "$TAG_VER" -m "$MSG"
 #PREPARE folder to publish to site. Folder is populated by Hugo and this folder's 
 #content is pushed to site repo
 
-if [ -d "$FOLDER2PUBLISH" ]; then
+if [ -d "$ROOT2PUBLISH/$FOLDER2PUBLISH" ]; then
     mkdir -p Trash    
-    mv "$FOLDER2PUBLISH" Trash/deleted."$FOLDER2PUBLISH"."$CURRENT_SECONDS_EPOCH"
+    mv "$ROOT2PUBLISH/$FOLDER2PUBLISH" "Trash/deleted-$FOLDER2PUBLISH-$CURRENT_SECONDS_EPOCH"
 fi
-git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"/tmpFolder
-mv "$FOLDER2PUBLISH"/tmpFolder/.git "$FOLDER2PUBLISH"
-mv "$FOLDER2PUBLISH"/tmpFolder Trash/"$FOLDER2PUBLISH"/tmpFolder."$CURRENT_SECONDS_EPOCH"
+git clone git@github.com:kfrajer/kfrajer.github.io.git "$ROOT2PUBLISH/$FOLDER2PUBLISH"/tmpFolder
+mv "$ROOT2PUBLISH/$FOLDER2PUBLISH"/tmpFolder/.git "$ROOT2PUBLISH/$FOLDER2PUBLISH"
+mv "$ROOT2PUBLISH/$FOLDER2PUBLISH/tmpFolder" "Trash/$FOLDER2PUBLISH-$CURRENT_SECONDS_EPOCH/tmpFolder"
 
 # Generate the content using Hugo
-hugo -d $FOLDER2PUBLISH
+hugo -d "$ROOT2PUBLISH/$FOLDER2PUBLISH"
 
 ## Clean up end-of-lines CR/LF chars
 source ./.cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" ".xml" ".json" ".txt" 
@@ -76,12 +77,12 @@ source ./.cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" "
 git push --set-upstream origin $CURR_BRANCH_NAME --follow-tags
 
 ## Copy site readme file to folder
-cp -f README.site.md $FOLDER2PUBLISH/README.md
+cp -f README.site.md "$ROOT2PUBLISH/$FOLDER2PUBLISH/README.md"
 # Instruct Github this static content is not using jekyll
-[ ! -f "$FOLDER2PUBLISH/.nojekyll"  ] && touch "$FOLDER2PUBLISH/.nojekyll"
+[ ! -f "$ROOT2PUBLISH/$FOLDER2PUBLISH/.nojekyll"  ] && touch "$ROOT2PUBLISH/$FOLDER2PUBLISH/.nojekyll"
 
 # Go To Public folder
-cd $FOLDER2PUBLISH
+cd "$ROOT2PUBLISH/$FOLDER2PUBLISH"
 
 # Add changes to git, commit and pushed built site to github.io repo
 git add .
