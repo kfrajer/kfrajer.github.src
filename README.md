@@ -34,6 +34,11 @@
 * To update any changes/commit in the submodule to be reflected in the main/master repo, run:
   `git submodule update --init --recursive`
 
+## ZZO Theme for site
+* Direct public access [here](http://devhugo.atspace.cc)
+* To run locally: 
+  - TBD
+
 ### Semantic versioning
 * Semantic vesrioning track in .repo_version file (See below)
 * Any branch name should start with either "mayor/"; "feature/" or "features/"; or "bugfix/" or "bugfixes/". 
