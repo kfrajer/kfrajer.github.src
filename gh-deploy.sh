@@ -32,11 +32,20 @@ if [ "$branchName" = master ]; then
     exit 1;
 fi
 
+## Check no commits pending in current branch
+git_status=$(git status --porcelain)
+if [ ! -z $git_status ]; then
+    echo "ERROR: There are pending changes that need to be commited. Aborting..."
+    echo "Debug: git_status returned: $git_status"
+    exit 1;
+fi
+
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
 
 ## Temporal solution. To delete publish folder (rename and move to trash), then 
 ## pull from repo, only copy .git folder and remove other folders before re-building site
+## Currently VSCode is locking in the publish folder so mv fails: CLOSE VSCode...bug2fix
 ## Alternate solution: To use submodule
 if [ -d "$FOLDER2PUBLISH" ]; then
     mkdir -p Trash
@@ -47,24 +56,20 @@ git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"/tmpFold
 mv "$FOLDER2PUBLISH"/tmpFolder/.git "$FOLDER2PUBLISH"
 rm -rf "$FOLDER2PUBLISH"/tmpFolder
 
-
-
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
 calculate_new_tag_version "$CURRENT_VERSION_TAG_TRACKER" $branchName
 TAG_VER=$new_version
 update_version_tracking "$CURRENT_VERSION_TAG_TRACKER" "$TAG_VER" "$MSG"
+git tag -a "$TAG_VER" -m "$MSG"
 
-if [ -n "$TAG_VER" ]; then
-    git tag -a "$TAG_VER" -m "$MSG"
-fi
 
 ## Clean up CRLF end of line chars
 #./crlf-cleanup.sh
 source ./.cicd.support/crlf-cleanup.sh ".sh" ".md" ".html" ".htm" ".css" ".js" ".xml" ".json" ".txt" 
 
-git push --set-upstream origin $branchName
+git push --set-upstream origin $branchName --follow-tags
 
 # Go To Public folder
 cd $FOLDER2PUBLISH
@@ -77,6 +82,7 @@ cp -f ../README.site.md README.md
 # Add changes to git, commit and pushed built site to github.io repo
 git add .
 git commit -m "$MSG"
+git tag -a "$TAG_VER" -m "$MSG"
 git push origin master --follow-tags
 
 # Revert to initial directory

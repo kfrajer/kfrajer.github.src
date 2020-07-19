@@ -57,10 +57,13 @@ function calculate_new_tag_version {
 
     if [[ $curr_branch_name == mayor/* ]]; then
         MAYOR=$((MAYOR+1))
+        MINOR=0
+        PATCH=0
     elif [[ $curr_branch_name == feature/* ]] || [[ $curr_branch_name == features/* ]]; then
         MINOR=$((MINOR+1))
+        PATCH=0
     elif [[ $curr_branch_name == bugfix/* ]] || [[ $curr_branch_name == bugfixes/* ]]; then
-        PATCH=$((PATCH+1))
+        PATCH=$((PATCH+1))        
     else
         echo "ERROR: Branch name \"$curr_branch_name\" not recognize. It need to start with \"mayor/\", \"feature/\" or \"bugfix/\". Aborting..."
         exit 1;

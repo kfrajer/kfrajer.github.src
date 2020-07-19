@@ -12,10 +12,10 @@ tags:
 - Projects
 - Development
 - Programming
-- Active
+- Github
 ---
 
 ## Under construction
 
-* Current list of projects
+* Current list of projects and their respective repo links
 * Reference TODO list
