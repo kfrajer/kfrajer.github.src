@@ -34,7 +34,7 @@ fi
 
 ## Check no commits pending in current branch
 git_status=$(git status --porcelain)
-if [ -n ${#git_status} ]; then
+if [ -n $git_status ]; then
     echo "ERROR: There are pending changes that need to be commited. Aborting..."
     echo "Debug: git_status returned: $git_status"
     exit 1;
