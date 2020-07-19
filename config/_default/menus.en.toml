@@ -1,16 +1,4 @@
 [[main]]
-  identifier = "about"
-  name = "About"
-  url = "about"
-  weight = 1
-
-[[main]]
-  identifier = "archive"
-  name = "Archive"
-  url = "archive"
-  weight = 2
-
-[[main]]
   identifier = "presentation"
   name = "Pt"
   url = "presentation"
@@ -51,13 +39,31 @@
   weight = 7
 
 [[main]]
+  identifier = "proj"
+  name = "Projects"
+  url = "projects"
+  weight = 8
+
+[[main]]
   identifier = "kbase"
   name = "KBase"
   url = "development"
-  weight = 8
+  weight = 9
   
 [[main]]
   identifier = "templates"
   name = "Templates"
   url = "templates"
-  weight = 9
+  weight = 10
+
+[[main]]
+  identifier = "archive"
+  name = "Archive"
+  url = "archive"
+  weight = 29
+
+[[main]]
+  identifier = "about"
+  name = "About"
+  url = "about"
+  weight = 30
