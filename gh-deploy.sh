@@ -41,15 +41,13 @@ if [ -d "$FOLDER2PUBLISH" ]; then
     mkdir -p Trash
     mv "$FOLDER2PUBLISH" "Trash/deleted.$FOLDER2PUBLISH.$SECONDS"
 fi
-git clone https://github.com/kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"
+git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"
 
 
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
 calculate_new_tag_version "$CURRENT_VERSION_TAG_TRACKER" $branchName
-#get_tag_version "$CURRENT_VERSION_TAG_TRACKER"
-#TAG_VER=$read_version
 TAG_VER=$new_version
 update_version_tracking "$CURRENT_VERSION_TAG_TRACKER" "$TAG_VER" "$MSG"
 
@@ -88,8 +86,8 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0;33mDONE\033[0m\n"
 printf "\033[0;32m ....................................... \033[0m\n\n"
 
 printf "\033[0;33mDon't forget: \033[0;32mYou need to now create a pull request upstream. Branch:\033[0;33m %s \033[0m\n" "$branchName"
-printf "Visit `https://github.com/kfrajer/kfrajer.github.io` and merge recent uploaded branch into master\n"
-printf "`git checout master && git pull`: After merge to update local repo\n"
-printf "\n`git submodule update --init --recursive`: Aligns base repo with latest submodule changes\n\n"
+printf "Visit 'https://github.com/kfrajer/kfrajer.github.io' and merge recent uploaded branch into master\n"
+printf "'git checkout master && git pull': After merge to update local repo\n"
+printf "\n'git submodule update --init --recursive': Aligns base repo with latest submodule changes\n\n"
 
 printf "\033[0;32mYour current branch is now set to \033[0;33m \"master\" \033[0m\n"
