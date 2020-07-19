@@ -24,7 +24,7 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 FOLDER2PUBLISH=published
 MSG="Rebuilding site $(date)"
-VERSION_FILE_TRACKER=".repo_version"
+CURRENT_VERSION_TAG_TRACKER=".repo_version"
 branchName=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$branchName" = master ]; then
@@ -38,10 +38,11 @@ fi
 # Build the project.
 hugo -d $FOLDER2PUBLISH
 
-calculate_new_tag_version "$VERSION_FILE_TRACKER" $branchName
-get_tag_version "$VERSION_FILE_TRACKER"
-TAG_VER=$read_version
-update_version_tracking "$TAG_VER" "$MSG"
+calculate_new_tag_version "$CURRENT_VERSION_TAG_TRACKER" $branchName
+#get_tag_version "$CURRENT_VERSION_TAG_TRACKER"
+#TAG_VER=$read_version
+TAG_VER=$new_version
+update_version_tracking "$CURRENT_VERSION_TAG_TRACKER" "$TAG_VER" "$MSG"
 
 if [ -n "$TAG_VER" ]; then
     git tag -a "$TAG_VER" -m "$MSG"

@@ -77,19 +77,22 @@ function calculate_new_tag_version {
 #Updates file tracking versioning
 #Currently it manages three file. Main file contains only the current version, 
 #.old contains list of versions and .history contains version+date+message history
+#  INPUT: File name storing current version
 #  INPUT: New version being generated
 #  INPUT: Message
 #  OUTPUT: 3 version tracking files are updated
 #  RETURN: 0 if success, non-zero otherwise
 function update_version_tracking {
-    if [ -z "$1" ]; then
+    TAG_FILE="$1"
+
+    if [ -z "$2" ]; then
         echo "ERROR: You need to provide the new version value to update history and internal version tracker. Aborting..."
         exit 1;
     fi
     
-    new_version=$1
+    new_version=$2
     msg=""
-    [ -n "$2" ] && msg="$2"
+    [ -n "$3" ] && msg="$3"
     curr_date="$(date)"
 
     # Append new version to file tracker of published versions
