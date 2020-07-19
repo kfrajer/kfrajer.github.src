@@ -22,7 +22,7 @@ run: serve ## Alias for 'run' goal
 build: ## Generate site
 	hugo -d $(DEPLOY_DIR)/
 
-deploy: ## Build site; update src and site repo; tag both repos
+deploy: # Build site; update src and site repo; tag both repos
 	dos2unix cmd.sh
 	./cmd.sh
 
