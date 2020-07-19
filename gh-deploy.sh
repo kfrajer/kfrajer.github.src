@@ -35,14 +35,18 @@ fi
 [ -n "$1" ] && FOLDER2PUBLISH="$1"
 [ -n "$2" ] && MSG="$2"
 
-## Temporal solution. To delete publish folder (rename and move to trash), then pull from repo before building site
+## Temporal solution. To delete publish folder (rename and move to trash), then 
+## pull from repo, only copy .git folder and remove other folders before re-building site
 ## Alternate solution: To use submodule
 if [ -d "$FOLDER2PUBLISH" ]; then
     mkdir -p Trash
     CURRENT_SECONDS_EPOCH=$((`date +%s`))
     mv "$FOLDER2PUBLISH" Trash/deleted."$FOLDER2PUBLISH"."$CURRENT_SECONDS_EPOCH"
 fi
-git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"
+git clone git@github.com:kfrajer/kfrajer.github.io.git "$FOLDER2PUBLISH"/tmpFolder
+mv "$FOLDER2PUBLISH"/tmpFolder/.git "$FOLDER2PUBLISH"
+rm -rf "$FOLDER2PUBLISH"/tmpFolder
+
 
 
 # Build the project.
