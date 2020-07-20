@@ -1,27 +1,21 @@
 +++
-title = "About-me"
-description = "Hugo, the world’s fastest framework for building websites"
+title = "About"
+description = "Knowledge base & Playbooks"
 type = "about"
 date = "2019-02-28"
 +++
 
+This site's main goal is to act as a knowledge base for code development in the are of
+* Web developmnet
+* CI/CD pipeline design 
+* Cloud technologies
+* Essential commands, references and playbooks
+* This is complemented with resources publicly available in public repos as well as using internally (private) online storage solutions
 
-
-Hugo makes use of a variety of open source projects including:
-
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
-
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
-
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
-
-
+### Questions or comments
+Please use either of the following methods
+* Contact me directly at krisfrajer@gmail.com
+* If there is an issue with the site or comments, please create aGithub issue [here](https://github.com/kfrajer/kfrajer.github.src/issues)
+* Contact me directly by filling out the form below
+    - TBD
 

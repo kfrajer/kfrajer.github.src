@@ -15,7 +15,6 @@ tags:
 - Golang
 ---
 
-
 ------------------------------------------------------------------------
 Building a Site: Generation
 *) (Why to setup a static site?)[#]
@@ -37,10 +36,9 @@ Building a Site: Deployment
 ------------------------------------------------------------------------
 Web hosting services
 Setting up page hosting using (GitHub)[https://gohugo.io/hosting-and-deployment/hosting-on-github/].
-You will need to decide if you are hosting a
-page specifically for a project or for a user/organization sie. I am choosing the later.
+You will need to decide if you are hosting a page specifically for a project or for a user/organization sie. I am choosing the later.
 The steps to follow are:
-*) Go to github and register using a valid counter.
+*) Go to github and register using a valid account
 *) Name repo kfrajer.github.io
 
 ------------------------------------------------------------------------

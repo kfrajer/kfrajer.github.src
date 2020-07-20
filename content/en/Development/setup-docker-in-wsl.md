@@ -14,17 +14,18 @@ tags:
 - Cheatsheet
 ---
 
-# Installing Docker in Windows Subsystem Linux (WSL)
+## Installing Docker in Windows Subsystem Linux (WSL)
 
-## NOTES
+### NOTES
 - After ssummer 2020, you need to have WSL2 which is made available for Windows 10 Home edition
 - It is recommended to upgrade to Windows 10 Pro
 - In "Turn Windows features on and off", check "Windows Hypervisor Platform"
 - To be confirmed, check "Hyper-V"? Currently working but this is not checked. To investigate...
 - Finally, install "Docker Destop" and ensure the `docker-machine` is up and running. Enable WSL2 support and add the following line in your Linux distro: `export DOCKER_HOST=unix:///var/run/docker.sock`
 
-## Instructions
+### Instructions
 
+```bash
 $ sudo apt install apt-transport-https ca-certificates curl software-properties-common
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 
@@ -63,8 +64,9 @@ $ /bin/sh /usr/local/sbin/start_docker.sh
 
 
 $ `sudo systemctl status docker` [OR] `sudo service docker status`
+```
 
-## REFERENCES
+### REFERENCES
 
 * [INTRO to Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * [Docker Running Seamlessly in Windows Subsystem Linux](https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa)

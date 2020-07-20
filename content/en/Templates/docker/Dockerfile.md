@@ -1,6 +1,6 @@
 ---
 author: "Cristian Mosquera"
-title: "Dockerfile sample"
+title: "Dockerfile sample - Report/Printing Press(Go)"
 date: 2020-05-30T18:08:14-04:00
 lastmod: 2020-05-30T18:08:14-04:00
 description: "Demo dockerfile using GOlang as base image"
@@ -11,12 +11,14 @@ enableTocContent: false
 tags: 
 - docker
 - build
+- Volumes
 ---
 
 # Instructions
 
-* docker build -t {imageName} .
-* docker run -it --rm --mount type=bind,src=/c/Users/C/workspace/out,dst=/app/publish --name {containerName} {imageName} 
+Next commands tag an image and run the container locally with the option to mount the source code for live updates
+* `docker build -t {imageName} .`
+* `docker run -it --rm --mount type=bind,src=/c/Users/C/workspace/out,dst=/app/publish --name {containerName} {imageName}`
 
 _______
 

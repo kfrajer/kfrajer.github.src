@@ -11,6 +11,7 @@ enableTocContent: false
 tags: 
 - docker
 - c++
+- Memory analysis
 ---
 
 # Memory analysis using docker 
@@ -83,7 +84,7 @@ strace -e mmap -k
 
 ## main-01.cpp
 
-```c++
+```cpp
 int main()
 {
         return 42;
@@ -92,7 +93,7 @@ int main()
 
 ## main-02.cpp
 
-```c++
+```cpp
 int main()
 {
         return *new int{42};
@@ -101,7 +102,7 @@ int main()
 
 ## main-03.cpp
 
-```c++
+```cpp
 char* f()
 {
         return new char[128*1024 - 15];
@@ -116,7 +117,7 @@ int main()
 
 ## main-04.cpp
 
-```c++
+```cpp
 #include <vector>
 
 void f()

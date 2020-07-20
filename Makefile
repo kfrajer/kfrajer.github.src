@@ -4,7 +4,7 @@
 CTIMESTAMP=$(shell date +%Y%m%d%H%M%S)
 
 SITE=kfrajer-site
-DEPLOY_DIR=../published
+DEPLOY_DIR=published
 TRASH=Trash
 BACKUP_DIR=~/bacup/hugo-site
 LOGFILE=log-backups.log
@@ -22,8 +22,7 @@ run: serve ## Alias for 'run' goal
 build: ## Generate site
 	hugo -d $(DEPLOY_DIR)/
 
-deploy: 
-	# Build site; update src and site repo; tag both repos
+deploy: ## Build site; update src and site repo; tag both repos
 	dos2unix cmd.sh
 	./cmd.sh
 

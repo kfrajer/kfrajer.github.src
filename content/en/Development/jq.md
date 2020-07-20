@@ -3,14 +3,16 @@ author: "Cristian Mosquera"
 title: "Jq"
 date: 2020-05-30T18:00:31-04:00
 lastmod: 2020-05-30T18:00:31-04:00
-description: ""
+description: "Pretty formatter for JSON logs"
 draft: false
 hideToc: false
 enableToc: true
 enableTocContent: false
 tags: 
-- one
-- two
+- jq
+- json
+- Formatter
+- logs
 ---
 
 # Core JQ commands
