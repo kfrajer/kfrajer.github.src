@@ -17,7 +17,6 @@
 * DOCS: Dockerfile for codevalidation, test and tagging
 * DOCS: Add manual P3 sketch building
 * DOCS: Add manual P3 library building
-* DOCS: List of active sites + Domains
 * DOCS: Compile CA instructions into a post
 
 * Cloud Endpoints
@@ -33,10 +32,7 @@
 ##
 ## ===========================================================================
 
-* FFT/C# ---> PDE java version 
 * sigma difference @ single freq
-* Python decorator demonstration
-
 
 how would I configure Traefik to have configure two docker containers to have there own unique domain  like example.com to docker container one coolwesite.net docker container two
 I was looking at the docs and other tutorials do I have to configure the Frontend with the appropriate domain and point it to the back end with the correct port?
