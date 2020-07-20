@@ -66,7 +66,7 @@ if [ -d "$ROOT2PUBLISH/$FOLDER2PUBLISH" ]; then
 fi
 git clone git@github.com:kfrajer/kfrajer.github.io.git "$ROOT2PUBLISH/$FOLDER2PUBLISH"/tmpFolder
 mv "$ROOT2PUBLISH/$FOLDER2PUBLISH"/tmpFolder/.git "$ROOT2PUBLISH/$FOLDER2PUBLISH"
-make -p "Trash/$FOLDER2PUBLISH-$CURRENT_SECONDS_EPOCH"
+mkdir -p "Trash/$FOLDER2PUBLISH-$CURRENT_SECONDS_EPOCH"
 mv "$ROOT2PUBLISH/$FOLDER2PUBLISH/tmpFolder" "Trash/$FOLDER2PUBLISH-$CURRENT_SECONDS_EPOCH/tmpFolder"
 
 # Generate the content using Hugo
