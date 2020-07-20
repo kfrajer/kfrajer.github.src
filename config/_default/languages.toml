@@ -1,12 +1,12 @@
 [en]
-  title = "Hugo Zzo Theme"
+  title = "PlayBooks"
   languageName = "English"
   weight = 1
   languagedir = "ltr"
   contentdir = "content/en"
 
 [es]
-  title = "Hugo Zzo Theme"
+  title = "PlayBooks"
   languageName = "Español"
   weight = 2
   languagedir = "ltr"

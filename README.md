@@ -8,7 +8,7 @@
 * Refer to .cicd.support/baseimage/README.md
 
 ## Create a new section and Markdown document:
-*  Run at the root of the site: `hugo new {section}/{md-file-name}` example `hugo new projects/_index.md`
+*  Run at the root of the site: `hugo new <SECTIONNAME>\<FILENAME>.<FORMAT>` example `hugo new projects/_index.md`
 
 ## Instructions for publishing
 * Create a branch, makes changes and commit often

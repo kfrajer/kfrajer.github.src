@@ -16,11 +16,12 @@ tags:
 
 # My sites
 * https://kfrajer.github.io
-* http://devhugo.atspace.cc/en/index.html
+* <http://devhugo.atspace.cc/en/index.html>
 * http://krisfrajer.atspace.cc/drdcsurvey/location.php?get=demo
 * http://krisfrajer.atspace.cc/drdcsurvey/cgi-bin/demo3.pl
 * http://www.bluelion.site/mem.php?top-
 * readapps.xyz
+* silverowl.biz: Expires June 6th 2021
 * krisfrajer.dev
 * GCP: data4good, headless chrome, contact form
 * https://data4good.uc.r.appspot.com/ /admin /hidden

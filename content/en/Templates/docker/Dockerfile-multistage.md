@@ -1,6 +1,6 @@
 ---
 author: "Cristian Mosquera"
-title: "Dockerfile Multistage"
+title: "Dockerfile Multistage - Newsletter/PrintingPress (Go)"
 date: 2020-05-30T18:09:54-04:00
 lastmod: 2020-05-30T18:09:54-04:00
 description: "Demo docker multi-stages"
@@ -11,6 +11,7 @@ enableTocContent: false
 tags: 
 - docker
 - build
+- Multistage
 ---
 
 ```

@@ -1,9 +1,9 @@
 ---
 author: "Cristian Mosquera"
-title: "Docker Compose"
+title: "Docker Compose - CI/CD Pipeline Generator (Python)"
 date: 2020-05-30T18:08:28-04:00
 lastmod: 2020-05-30T18:08:28-04:00
-description: "Docker compose sample: network, service definition, .env"
+description: "Docker compose sample file: network, service definition, .env"
 draft: false
 hideToc: false
 enableToc: true
@@ -14,30 +14,48 @@ tags:
 - network
 - demo
 - services
+- env file
 ---
 
-# Dockerfiles with common network layer: Master-slave setup
+## Overview
+In this section you find sample docker-compose files that allows to run a master-slave service. One service defines a custom bridge network, the second connects to this network. In addition, there is a demo of overriding a docker-compose file using another docker-compose file. Finally, you find handy commands to debug docker containers and a sample `.env` file. 
 
-## Instructions
+### Handy commands for debugging
+
+* Shows all running containers: `docker ps -a`
+* Removes idle stopped containers: `docker rm $(docker ps -q -f "status=exited")`
+* See logs from container (name as displayed in docker ps): `docker logs -f {containerName}`
+* Create `bash` session in a running container: `docker exec -it {containerName} /bin/bash`
+* To explore/beautify logs in container and extract loglevel and message and assign it to **LEVEL** and **MSG** resp.: `cat app_logs.txt | jq ". | {LEVEL: .logLevel, MSG: .message}"`
+* To see the current network setup: `docker network ls`
+
+### Example Dockerize PostgreSQL
+* https://docs.docker.com/engine/examples/postgresql_service/
+
+____________
+
+## Dockerfiles with common network layer: Master-slave setup
+
+### Instructions
 
 * Configure values in .env file
 * Init sequence:
-  - Spin master first (See cmd 1)
-  - Spin slave second (See cmd 1)
+    - Spin master first (See cmd #1)
+    - Spin slave second (See cmd #1)
 * Docker tear down instructions:
-  - Stop + rm slave container first. Do not run dk-cp down (See cmd 2)
-  - Down master script. It will manage the network teardown (See cmd 3)
+    - Stop + remove slave container first. Do not run dk-cp down (See cmd #2 below)
+    - Spin down master script. It will manage the network teardown (See cmd #3)
 * If slave container needs to be re-built and spin up again: Init only slave
 * If master container needs to be re-built and spin up again: Follow init sequence
 
-### Sample commands:
+#### Sample commands:
 1. `docker-compose -f docker-compose.yml -f docker-compose.tandem.yml up --build -d`
 2. `docker-compose stop && docker-compose rm -f`
 3. `docker-compose -f docker-compose.yml -f docker-compose.tandem.yml down`
 
-## Standard .env file
+### Standard .env file
 
-```
+```bash
 ## docker-compose will extract the variables from this file
 ## If variable is not defined here, it needs to be defined in terminal 
 ## session running docker-compose. Any variable define in current session
@@ -68,9 +86,9 @@ AUX_SVC_ADDR=0.0.0.0
 
 ```
 
-## MASTER docker-compose.yml file
+### MASTER docker-compose.yml file
 
-```
+```docker
 version: '3.4'
 
 x-bucket-path:
@@ -140,18 +158,21 @@ networks:
 
 ```
 
-## Additional lines for SLAVE docker-compose.yml file
+### Additional lines for SLAVE docker-compose.yml file
+These lines are needed to define an external network so service is attached to it instead of the default bridge network
 
-```
+```docker
 networks:
   my_net:
     external:
       name: ${COMPOSE_PROJECT_NAME}_my_net
 ```
 
-## Sample defining other services in docker-compose file
+### Other service definitions in a docker-compose file
 
-```
+Demo showing definition of additional services
+
+```docker
 services:
   redis:
     image: redis
@@ -188,20 +209,12 @@ volumes:
 
 ```
 
-* Example Dockerize PostgreSQL:  https://docs.docker.com/engine/examples/postgresql_service/
+### Sample overriding a docker-compose file
 
-## Handy commands for debugging
+To override a docker-compose file, you need to pass both files to docker-compose and docker-compose will set the state based from the difference of these two files. Use case: This permit to differentiate running locally and overriding when deploying in a CI/CD pipeline removing volumes or dropping environmental variables. The command which builds the service(s) and sets docker-compose in dttached state:
+`docker-compose -f docker-compose.yml -f docker-compose.deploy.yml up --build -d`
 
-* Shows all running containers: `docker ps -a`
-* Removes idle stopped containers: `docker rm $(docker ps -q -f "status=exited")`
-* See logs from container (name as displayed in docker ps): `docker logs -f {containerName}`
-* Sh into a container: `docker exec -it {containerName} /bin/bash`
-* To explore/beautify logs in container and extract loglevel and message and assign it to **LEVEL** and **MSG** resp.: `cat app_logs.txt | jq ". | {LEVEL: .logLevel, MSG: .message}"`
-* To see the network bridges: `docker network ls`
-
-## Overriding docker-compose
-
-```
+```dockerfile
 # This file  will override the docker-compose.yml
 # Currently overrrides only any mounted volumes because they don't exist when deployed
 # The way the override work with volume  : it override the volume with a different 
