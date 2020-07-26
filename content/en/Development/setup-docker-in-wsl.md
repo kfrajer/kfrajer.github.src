@@ -39,20 +39,17 @@ $ apt-cache policy docker-ce
 $ sudo apt install docker-ce
 
 $ apt list -a docker-ce
+
 $ echo $USER
-$ sudo usermod -aG docker $USER
-
 Log out and back in [OR] `su - ${USER}`
-
 $ id -nG  ## You should be in the docker group
-$ sudo usermod -aG docker username  ## Optional
-
+$ sudo usermod -aG docker $USER
 
 $ sudo nano /usr/local/sbin/start_docker.sh
 
-  > #!/usr/bin/env bash
-  > sudo cgroupfs-mount
-  > sudo service docker start
+  #!/usr/bin/env bash
+  sudo cgroupfs-mount
+  sudo service docker start
 
 
 $ sudo chmod +x /usr/local/sbin/start_docker.sh
@@ -64,9 +61,12 @@ $ /bin/sh /usr/local/sbin/start_docker.sh
 
 
 $ `sudo systemctl status docker` [OR] `sudo service docker status`
+
+$ `docker run --rm hello-world`
 ```
 
 ### REFERENCES
 
-* [INTRO to Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+* [DigitalOcean: Intro to Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 * [Docker Running Seamlessly in Windows Subsystem Linux](https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa)
+* [Dev.to: Install Docker on WSL2 - Ubuntu](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7)
